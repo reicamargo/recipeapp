@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="25K-i6-WDo">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--ListaCategoriasView-->
+        <scene sceneID="pVG-9T-u9W">
+            <objects>
+                <viewController title="ListaCategoriasView" id="Lrq-eL-C9K" customClass="CategoriaViewController" customModule="ReceitasPraValer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cgq-2n-Iss">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="1ZE-Bc-lc9">
+                            <rect key="frame" x="0.0" y="136" width="375" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="categoryCell" textLabel="r9Q-gT-6Re" style="IBUITableViewCellStyleDefault" id="ORZ-dN-gNr" customClass="CategoryTableViewCell" customModule="ReceitasPraValer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ORZ-dN-gNr" id="mMd-kg-ERp">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r9Q-gT-6Re">
+                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Hbg-f8-TQv" kind="show" identifier="listaReceitaView" id="LZj-gx-0l0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Lrq-eL-C9K" id="cbZ-rr-t13"/>
+                            <outlet property="delegate" destination="Lrq-eL-C9K" id="Huf-TY-rt6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="KAp-8I-FAH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qOq-kh-0JN">
+                            <connections>
+                                <segue destination="FtY-Cf-oRF" kind="show" id="fG0-5S-4RB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="1ZE-Bc-lc9" id="k3O-YR-vnc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5mJ-W7-sWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1399.5" y="168.5"/>
+        </scene>
+        <!--ListaReceitasView-->
+        <scene sceneID="Weo-r4-d6f">
+            <objects>
+                <viewController title="ListaReceitasView" id="Hbg-f8-TQv" customClass="ListaReceitaViewController" customModule="ReceitasPraValer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UzQ-Ux-TtP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" id="K8T-Tg-rtN">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K8T-Tg-rtN" id="gRG-RY-qOK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Hbg-f8-TQv" id="aDB-pJ-DMC"/>
+                            <outlet property="delegate" destination="Hbg-f8-TQv" id="NRA-vH-gq9"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="yAU-j1-3DC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PVk-lb-Vj8"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7nG-J8-1Hd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2004.5" y="168.5"/>
+        </scene>
+        <!--CriaReceitaView-->
+        <scene sceneID="pjN-cB-64Y">
+            <objects>
+                <viewController title="CriaReceitaView" id="gkh-n3-wSf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mfa-8h-mmi"/>
+                        <viewControllerLayoutGuide type="bottom" id="u7e-jz-tRj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8mK-co-E3f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2CP-fl-ffi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2647.5" y="168.5"/>
+        </scene>
+        <!--CriaCategoria-->
+        <scene sceneID="quz-mC-6Nc">
+            <objects>
+                <viewController title="CriaCategoria" id="FtY-Cf-oRF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zc1-Tw-YCE"/>
+                        <viewControllerLayoutGuide type="bottom" id="6aU-3o-kbG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UDJ-ei-I1L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vcb-fI-a6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1399.5" y="980.5"/>
+        </scene>
+        <!--DetalheReceitaView-->
+        <scene sceneID="SCL-wY-Wb1">
+            <objects>
+                <viewController title="DetalheReceitaView" id="KYr-2s-c0A" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iZl-8i-sqc"/>
+                        <viewControllerLayoutGuide type="bottom" id="aKF-mj-DJQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7DO-sS-0wm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kjg-uo-5GG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1997.5" y="980.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vcF-Jp-gRu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="25K-i6-WDo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WxV-Uj-Oox">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Lrq-eL-C9K" kind="relationship" relationship="rootViewController" id="nZa-qi-OVu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gkW-Ao-Ch3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="710" y="169"/>
+        </scene>
+    </scenes>
+</document>
