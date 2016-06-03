@@ -8,12 +8,21 @@
 
 import UIKit
 
-class Categoria: NSObject {
+
+class Categoria {
+    var id: Int32?
     var title: String
     var ativo: Bool
     
-    init(title: String, ativo: Bool) {
+    init(id: Int32, title: String, ativo: Bool) {
+        self.id = id
         self.title = title
         self.ativo = ativo
     }
+    
+    init(title: String, ativo: Bool){
+        self.title = title
+        self.ativo = ativo
+    }
+    
 }

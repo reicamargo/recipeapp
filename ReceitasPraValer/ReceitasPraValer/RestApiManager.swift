@@ -30,4 +30,26 @@ class RestApiManager: NSObject {
         
         
     }
+    
+    func makeHTTPPostRequest(endPointUrl: String, body: AnyObject, onCompletion: ServiceResponse) {
+        var err: NSError?
+        let path = baseURL + endPointUrl
+        let request = NSMutableURLRequest(URL: NSURL(string: path)!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        // Set the method to POST
+        request.HTTPMethod = "POST"
+        
+        // Set the POST body for the request
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
+        let session = NSURLSession.sharedSession()
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            let json:JSON = JSON(data: data!)
+            onCompletion(json, err)
+        })
+        task.resume()
+    }
 }
+

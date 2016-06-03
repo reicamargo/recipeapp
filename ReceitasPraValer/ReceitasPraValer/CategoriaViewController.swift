@@ -11,7 +11,7 @@ import UIKit
 class CategoriaViewController: UITableViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    var items = NSMutableArray()
+    var categories = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class CategoriaViewController: UITableViewController {
             
             for (_, catego) in json {
                 let categoria: AnyObject = catego.object
-                self.items.addObject(categoria)
+                self.categories.addObject(categoria)
             }
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
@@ -37,15 +37,15 @@ class CategoriaViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return categories.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("categoryCell") as! CategoryTableViewCell
         
-        let categoria:JSON = JSON(self.items[indexPath.row])
+        let categoria:JSON = JSON(self.categories[indexPath.row])
 
-        cell.category = Categoria(title: categoria["Titulo"].string!, ativo: categoria["Ativo"].boolValue)
+        cell.category = Categoria(id: categoria["Id"].int32Value, title: categoria["Titulo"].string!, ativo: categoria["Ativo"].boolValue)
         cell.textLabel?.text = categoria["Titulo"].string
         
         return cell
@@ -57,7 +57,7 @@ class CategoriaViewController: UITableViewController {
             let cell = sender as! CategoryTableViewCell
             let listaReceitaView = segue.destinationViewController as! ListaReceitaViewController
             
-            listaReceitaView.preCategory = cell.category
+            listaReceitaView.choosenCategory = cell.category
             
         }
     }
